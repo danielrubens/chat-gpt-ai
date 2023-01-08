@@ -49,3 +49,19 @@ const chatStripe = (isAi, value, uniqueId) => {
     `
   )
 }
+
+const handleSubmit = async(e) => {
+  e.preventDefault()
+  const data = new FormData(form)
+  chatContainer.innerHTML += chatStripe(false, data.get('prompt'))
+  form.reset()
+
+  const uniqueId = generateUniqueId()
+  chatContainer.innerHTML += chatStripe(true, ' ', uniqueId)
+  chatContainer.scrollTop = chatContainer.scrollHeight
+  const messageDiv = document.getElementById(uniqueId)
+  loader(messageDiv)
+}
+
+form.addEventListener('submit', handleSubmit)
+form.addEventListener('keyup', (e) => { if(e.keyCode === 13) handleSubmit(e)} )
