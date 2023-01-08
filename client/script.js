@@ -13,3 +13,16 @@ const loader = (element) => {
     if(element.textContent.length === 3) element.textContent = ''
   }, 300)
 }
+
+const typeText = (element, text) => {
+  let index = 0
+  let interval = setInterval(() => {
+    if (index < text.length){
+      element.innerHTML += text.chartAt(index)
+      index++
+    }else{
+      clearInterval(interval)
+    }
+  }, 20)
+} 
+
