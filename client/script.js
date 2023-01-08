@@ -26,3 +26,8 @@ const typeText = (element, text) => {
   }, 20)
 } 
 
+const generateUniqueId = () => {
+  const timestamp = Date.now()
+  const hexadecimal = Math.random().toString(16)
+  return `id-${timestamp}-${hexadecimal}`
+}
