@@ -10,7 +10,7 @@ const loader = (element) => {
   element.textContent = ''
   loadInterval = setInterval(() => {
     element.textContent += '.'
-    if(element.textContent.length === 3) element.textContent = ''
+    if(element.textContent.length === '....') element.textContent = ''
   }, 300)
 }
 
